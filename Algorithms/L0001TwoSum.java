@@ -7,9 +7,11 @@ public class L0001TwoSum {
         int[] twoSumResult = twoSum(arr, num);
         System.out.println(twoSumResult[0] + " " + twoSumResult[1]);
     }
-
+    //this function has Big O of n^2, has nested loop
     static int[] twoSum(int[] arr, int num) {
+        // this loops n times
         for (int i = 0; i < arr.length; i++) {
+            //loops n times
             for (int j = i + 1; j < arr.length; j++) {
                 // System.out.println(arr[i] + "," + arr[j]);
                 if (arr[i] + arr[j] == num) {
