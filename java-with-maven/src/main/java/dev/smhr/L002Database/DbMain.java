@@ -1,6 +1,7 @@
 package dev.smhr.L002Database;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Connection;
 
@@ -42,6 +43,22 @@ public class DbMain {
         statement.executeUpdate("""
                 DELETE FROM test_students WHERE id = 2
                 """);
+        
+       ResultSet resultSet = statement.executeQuery("""
+            SELECT * FROM test_students;
+        """);
+
+        while(resultSet.next()){
+            int id = resultSet.getInt("id");
+            String fullName = resultSet.getString("full_name");
+            int age = resultSet.getInt("age");
+            String address = resultSet.getString("address");
+            System.out.print(" | " + id);
+            System.out.print(" | " + age);
+            System.out.print(" | " + fullName);
+            System.out.print(" | " + address);
+            System.out.println();
+        }
         // last Step: close connection
         conn.close();
     }
